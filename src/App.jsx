@@ -8,29 +8,29 @@ function App() {
 
   const allWeatherCodes = {
     0: "Unknown",
-    1000: "Clear",
-    1100: "Mostly Clear",
-    1101: "Partly Cloudy",
-    1102: "Mostly Cloudy",
-    1001: "Cloudy",
-    2000: "Fog",
-    2100: "Light Fog",
-    4000: "Drizzle",
-    4001: "Rain",
-    4200: "Light Rain",
-    4201: "Heavy Rain",
-    5000: "Snow",
-    5001: "Flurries",
-    5100: "Light Snow",
-    5101: "Heavy Snow",
-    6000: "Freezing Drizzle",
-    6001: "Freezing Rain",
-    6200: "Light Freezing Rain",
-    6201: "Heavy Freezing Rain",
-    7000: "Ice Pellets",
-    7101: "Heavy Ice Pellets",
-    7102: "Light Ice Pellets",
-    8000: "Thunderstorm",
+    1000: ["Clear", "clear_day.svg", "clear_night"],
+    1100: ["Mostly Clear", "mostly_clear_day.svg", "mostly_clear_night.svg"],
+    1101: ["Partly Cloudy", "partly_cloudy_day.svg", "partly_cloudy_night.svg"],
+    1102: ["Mostly Cloudy", "mostly_cloudy.svg"],
+    1001: ["Cloudy", "cloudy.svg"],
+    2000: ["Fog", "fog.svg"],
+    2100: ["Light Fog", "fog_light.svg"],
+    4000: ["Drizzle", "drizzle.svg"],
+    4001: ["Rain", "rain.svg"],
+    4200: ["Light Rain", "rain_light.svg"],
+    4201: ["Heavy Rain", "rain_heavy.svg"],
+    5000: ["Snow", "snow.svg"],
+    5001: ["Flurries", "flurries.svg"],
+    5100: ["Light Snow", "snow_light.svg"],
+    5101: ["Heavy Snow", "snow_heavy.svg"],
+    6000: ["Freezing Drizzle", "freezing_drizzle.svg"],
+    6001: ["Freezing Rain", "freezing_rain.svg"],
+    6200: ["Light Freezing Rain", "freezing_rain_light.svg"],
+    6201: ["Heavy Freezing Rain", "freezing_rain_heavy.svg"],
+    7000: ["Ice Pellets", "ice_pellets.svg"],
+    7101: ["Heavy Ice Pellets", "ice_pellets_heavy.svg"],
+    7102: ["Light Ice Pellets", "ice_pellets_light.svg"],
+    8000: ["Thunderstorm", "tstorm.svg"],
   };
 
   const getWeatherData = () => {
@@ -52,11 +52,17 @@ function App() {
     });
   };
 
+  const getImage = (condition) => {
+    const imgSrc = "clear_day.svg";
+
+    return imgSrc;
+  };
+
   return (
     <div id="weatherNow-root" className="flex flex-col h-screen w-screen">
       <header
         id="weatherNow-header"
-        class="sm:flex-row flex flex-col py-3 bg-[#FFEFD5]"
+        className="sm:flex-row flex flex-col py-3 bg-[#FFEFD5]"
       >
         {/* <div className=""> */}
         <p
@@ -92,18 +98,61 @@ function App() {
               <div>
                 <div>City: {weather.location.name}</div>
               </div>
-              <div className="flex flex-row">
-              <div className="basis-1/3">
-                <img src="clear_night.svg" className=""/>
-                <p>Temperature: {weather.data.values.temperature}</p>
-              </div>
-              <div className="basis-2/3 content-center">
-                <p>
-                  Condition: {allWeatherCodes[weather.data.values.weatherCode]}
-                </p>
-                <p>Humidity: {weather.data.values.humidity}</p>
-                <p>Wind Speed: {weather.data.values.windSpeed}</p>
-              </div>
+              <div className="flex flex-col sm:flex-row gap-1">
+                <div className="basis-1/3">
+                  <img
+                    src={allWeatherCodes[weather.data.values.weatherCode][1]}
+                    className=""
+                  />
+                  <p className="text-xl font-bold">
+                    Temperature: {weather.data.values.temperature}
+                  </p>
+                  <p className="font-semibold">
+                    Condition:{" "}
+                    {allWeatherCodes[weather.data.values.weatherCode][0]}
+                  </p>
+                </div>
+                <div className="basis-2/3 flex flex-wrap gap-1">
+                  <div
+                    id="card"
+                    className="border-2 border-[#ff7900] w-[49%] h-[49%] flex flex-col items-center p-2 rounded-xl shadow-md "
+                  >
+                    <img src="humidity.png" className="w-[40%] h-[60%] mb-2" />
+                    <p className="text-center text-xl">
+                      Humidity: {weather.data.values.humidity}
+                    </p>
+                  </div>
+                  <div
+                    id="card"
+                    className="border-2 border-[#ff7900]  w-[49%] h-[49%] flex flex-col items-center p-2 rounded-xl shadow-md "
+                  >
+                    <img src="windSpeed.png" className="w-[40%] h-[60%] mb-2" />
+                    <p className="text-center text-xl">
+                      Wind Speed: {weather.data.values.windSpeed}
+                    </p>
+                  </div>
+                  <div
+                    id="card"
+                    className="border-2 border-[#ff7900] w-[49%] h-[49%] flex flex-col items-center p-2 rounded-xl shadow-md "
+                  >
+                    <img
+                      src="visibility.png"
+                      className="w-[40%] h-[60%] mb-2"
+                    />
+                    <p className="text-center text-xl">
+                      Visibility: {weather.data.values.visibility}
+                    </p>
+                  </div>
+                  <div
+                    id="card"
+                    className="border-2 border-[#ff7900] w-[49%] h-[49%] flex flex-col items-center p-2 rounded-xl shadow-md "
+                  >
+                    <img src="uvIndex.png" className="w-[40%] h-[60%] mb-2" />
+                    <p className="text-center text-xl">
+                      UV Index: {weather.data.values.uvIndex}
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* <div>Time: {weather.data.time}</div> */}
@@ -122,6 +171,7 @@ function App() {
         >
           Developed & Maintained by Aravind Kotagiri{" "}
           <span className="text-[#808080]">(Powered by Tomorrow.io)</span>
+          {/* Icon by Freepik  */}
         </p>
       </footer>
     </div>
