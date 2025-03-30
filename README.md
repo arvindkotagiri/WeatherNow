@@ -11,8 +11,6 @@
 
 WeatherNow is a **Vite-powered React** application that delivers real-time weather data through an elegant dashboard interface. Built with modern web technologies including **Tailwind CSS** for styling and **jQuery** for streamlined **AJAX** requests, this responsive application fetches current weather conditions from the Tomorrow.io API.
 
----
-
 ## ✨ Features
 
 #### Core Functionality
@@ -31,8 +29,6 @@ WeatherNow is a **Vite-powered React** application that delivers real-time weath
 - API rate limit detection
 - Keyboard navigation support
 - Optimized performance with React hooks
-
----
 
 ## 🚀 Quick Start
 
@@ -56,8 +52,6 @@ WeatherNow is a **Vite-powered React** application that delivers real-time weath
    npm run dev
    ```
 
----
-
 ## 🌐 API Integration
 
 The application uses the Tomorrow.io Weather API with the following endpoints:
@@ -74,8 +68,6 @@ GET https://api.tomorrow.io/v4/weather/realtime
 location: City name or coordinates
 apikey: Your API key
 ```
-
----
 
 ## 🖥️ UI Components
 
@@ -98,8 +90,6 @@ apikey: Your API key
 | Visibility | <img src="./public/visibility.png" width="20" height="20"> | Visibility distance in km |
 | UV Index | <img src="./public/uvIndex.png" width="20" height="20"> | Current UV index |
 
----
-
 ## 🚨 Error Handling
 
 The application handles several error scenarios:
@@ -116,9 +106,7 @@ The application handles several error scenarios:
    -   Shows "City not found" message
    -   Clears previous weather data
 
----
-
-### 👨‍💻 Author
+## 👨‍💻 Author
 
 [Aravind Kotagiri](https://github.com/arvindkotagiri)
 
@@ -129,8 +117,6 @@ The application handles several error scenarios:
 - **Application Code**: MIT License © 2023 [Aravind Kotagiri](https://github.com/arvindkotagiri)
 - **Weather Data**: Creative Commons Attribution 4.0 (CC BY 4.0) by Tomorrow.io
 - **Weather Icons**: [FreePik](https://www.freepik.com/)
-
----
 
 ## Attribution Requirements
 
