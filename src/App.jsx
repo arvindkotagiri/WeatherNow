@@ -160,7 +160,8 @@ function App() {
         ) : (
           <div className="text-center py-16">
             <div className="max-w-md mx-auto">
-              <h2 className="text-2xl font-bold text-amber-600 mb-2">Welcome to WeatherNow</h2>
+              <img src="/logo.png" className="w-[40%] h-[40%] m-auto"/>
+              <h2 className="text-2xl font-bold text-amber-600 mt-4 mb-2">Welcome to WeatherNow</h2>
               <p className="text-gray-600 mb-6">
                 Search for a city to get current weather information.
               </p>
