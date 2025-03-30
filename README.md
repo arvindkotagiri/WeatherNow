@@ -110,8 +110,6 @@ The application handles several error scenarios:
 
 [Aravind Kotagiri](https://github.com/arvindkotagiri)
 
----
-
 ## 📜 License
 
 - **Application Code**: MIT License © 2023 [Aravind Kotagiri](https://github.com/arvindkotagiri)
