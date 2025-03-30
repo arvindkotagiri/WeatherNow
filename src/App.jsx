@@ -49,9 +49,9 @@ function App() {
     >
       <header className="py-4 bg-white/80 backdrop-blur-sm shadow-sm">
         <div className="container mx-auto px-4 flex flex-col sm:flex-row gap-3 items-center">
-          <h1 className="text-3xl font-bold text-amber-600 flex-1">
+          <a href="" className="text-3xl font-bold text-amber-600 flex-1">
             WeatherNow
-          </h1>
+          </a>
           
           <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
             <input
